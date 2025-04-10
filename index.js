@@ -9,8 +9,7 @@ function addvalue(){
 }
 
 function clear() {
-    alert('Clearing the calculator!');
-    console.log('Sign updated:');
+
     
     // Clear the result and final result
     result = [];
@@ -31,7 +30,7 @@ function clearvalue() {
 function getsign(newvalue) {
   sign = newvalue;
   result.push(sign)
-  console.log(result);
+
   
 
   // Get current display value from the result array
@@ -43,35 +42,32 @@ function getsign(newvalue) {
   // Show it on the display
   document.querySelector(".display").innerText = data;
 
-  console.log('Sign updated:', data);  // Check the updated value
+
 }
 
 
 function calculate() {
   alert('Calculating: ' + sign);  
 
-  // Ensure the final result is calculated based on the operation
+
   if (sign == '+') {
-    // Add numbers in the result array
-    // result.push('+');
+
     let remove = '+'
     let data = result.filter(value => value !== remove );
-    // console.log(data);
     finalresult = data.reduce((acc, e) => acc + parseFloat(e), 0);
     result = [];
     result.push(finalresult);
-    console.log('+ result:', finalresult);
   } else if (sign == '-') {
     let remove = '-'
     let data = result.filter(value => value !== remove );
     finalresult = data.slice(1).reduce((acc, e) => acc - parseFloat(e), parseFloat(result[0]));
     result = [];
     result.push(finalresult);
-    console.log('- result:', finalresult);
+
     
     result = [];
     result.push(finalresult);
-    console.log('- result:', finalresult);
+
   } else if (sign == '*') {
     // Multiply numbers in the result array
     let remove = '*'
@@ -80,7 +76,7 @@ function calculate() {
     finalresult = data.reduce((acc, e) => acc * parseFloat(e), 1);
     result = [];
     result.push(finalresult);
-    console.log('* result:', finalresult);
+
   } else if (sign == '/') {
     let remove = '/'
     let data = result.filter(value => value !== remove );
@@ -88,7 +84,7 @@ function calculate() {
     finalresult = data.reduce((acc, e) => acc / parseFloat(e), result[0]);
     result = [];
     result.push(finalresult);
-    console.log('/ result:', finalresult);
+
   } else {
     console.log('Empty or invalid operation');
     
